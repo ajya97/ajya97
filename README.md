@@ -1,4 +1,4 @@
-### 👋 Hi there, I'm Ajay (@ajya97)
+### 👋 Hi there, I'm Ajeet Yadav (@ajya97)
 
 - 👀 I’m interested in **AI, Machine Learning, Web Development, and Open Source Projects**
 - 🌱 I’m currently learning **Advanced Data Science, Deep Learning, and Full-Stack Development**
