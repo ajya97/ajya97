@@ -3,11 +3,9 @@
 - 👀 I’m interested in **AI, Machine Learning, Web Development, and Open Source Projects**
 - 🌱 I’m currently learning **Advanced Data Science, Deep Learning, and Full-Stack Development**
 - 💞️ I’m looking to collaborate on **AI-based web apps, ML model optimization, and innovative open-source tools**
-- 📫 How to reach me:  
-  📧 Email: your.email@example.com  
+- 📫 How to reach me:   
   💼 LinkedIn: [(https://www.linkedin.com/in/ajya97)](https://www.linkedin.com/in/ajya97/) 
-  🧠 Portfolio: [your-portfolio-link.com](https://yourportfolio.com)
-
+  🧠 Portfolio: [(https://ajya97.github.io/mini-project/port.html)]
 - 😄 Pronouns: **He/Him**
 - ⚡ Fun fact: I can talk endlessly about AI, and I love turning complex tech into simple, user-friendly tools!
 
