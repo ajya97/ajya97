@@ -1648,9 +1648,9 @@
         <div class="projects__grid">
           <article class="project-card" data-category="ml">
             <div class="project-card__content">
-              <h3 class="project-card__title">Python Code Writer (API + Streamlit)</h3>
+              <h3 class="project-card__title">Code Writer (API + Streamlit)</h3>
               <p class="project-card__description">
-                Streamlit web app that converts natural-language prompts into Python code using Google
+                Streamlit web app that converts natural-language prompts into Code using Google
                 Gemini AI, with automatic module detection, code cleaning, and Hinglish explanations.
               </p>
               <div class="project-card__tags">
@@ -1660,7 +1660,7 @@
                 <span class="tag">APIs</span>
               </div>
               <div class="project-card__actions">
-                <a href="#" class="btn btn--ghost btn--small">Live Demo</a>
+                <a href="https://codewriter.streamlit.app/" class="btn btn--ghost btn--small">Live Demo</a>
                 <a href="https://github.com/ajya97" class="btn btn--primary btn--small" target="_blank">GitHub</a>
               </div>
             </div>
@@ -1679,7 +1679,7 @@
                 <span class="tag">Python</span>
               </div>
               <div class="project-card__actions">
-                <a href="#" class="btn btn--ghost btn--small">Live Demo</a>
+                <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/19/04/20250219040407-Z455LXST.json" class="btn btn--ghost btn--small">Live Demo</a>
                 <a href="https://github.com/ajya97" class="btn btn--primary btn--small" target="_blank">GitHub</a>
               </div>
             </div>
@@ -1783,7 +1783,8 @@
         </p>
 
         <div class="contact__grid">
-          <form class="contact__form glass-card" action="#" method="POST">
+          <form id="contact-form" class="contact__form glass-card" action="https://formspree.io/f/meoylynb"
+            method="POST">
             <div class="form__group">
               <label for="name">Name</label>
               <div class="form__field">
@@ -1804,19 +1805,15 @@
               <label for="message">Message</label>
               <div class="form__field form__field--textarea">
                 <i class="fa-solid fa-message"></i>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  placeholder="Tell me about your project or idea..."
-                  required
-                ></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or idea..."
+                  required></textarea>
               </div>
             </div>
 
             <button type="submit" class="btn btn--primary form__submit">
               Send Message
             </button>
+            <p id="form-status" class="form__status"></p>
           </form>
           <div class="contact__info">
             <h3>Let’s build something intelligent.</h3>
@@ -1858,9 +1855,59 @@
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- JS -->
-  <!-- <script src="main.js"></script> -->
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("contact-form");
+      const status = document.getElementById("form-status");
+
+      const redirectUrl = "https://ajya97.github.io/ajya97/";
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault(); 
+
+        if (status) {
+          status.textContent = "Sending...";
+          status.style.color = "#ccc";
+        }
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              "Accept": "application/json" 
+            }
+          });
+
+          if (response.ok) {
+            form.reset();
+            window.location.href = redirectUrl;
+          } else {
+            if (status) {
+              // try to read errors from JSON
+              try {
+                const data = await response.json();
+                if (data && data.errors) {
+                  status.textContent = data.errors.map(e => e.message).join(", ");
+                } else {
+                  status.textContent = "Oops! There was a problem submitting your form.";
+                }
+              } catch (e) {
+                status.textContent = "Oops! There was a problem submitting your form.";
+              }
+              status.style.color = "#ff5252";
+            }
+          }
+        } catch (error) {
+          if (status) {
+            status.textContent = "Network error. Please try again.";
+            status.style.color = "#ff5252";
+          }
+        }
+      });
+    });
 
     // Helpers
     const $ = (selector, scope = document) => scope.querySelector(selector);
@@ -2097,7 +2144,9 @@
 
       // Replace with your actual Drive file ID
       const driveFileId = "YOUR_DRIVE_FILE_ID";
-      const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveFileId}`;
+      const downloadUrl = `https://drive.google.com/uc?export=download&id=1ovjOAbd8XUnwJSVxVRzMvesPfGLLUTQ6`;
+      // https://drive.google.com/file/d/1ovjOAbd8XUnwJSVxVRzMvesPfGLLUTQ6/view?usp=drive_link
+      // https://drive.google.com/file/d/1ovjOAbd8XUnwJSVxVRzMvesPfGLLUTQ6/view?usp=sharing
 
       btn.addEventListener("click", e => {
         e.preventDefault();
@@ -2123,4 +2172,3 @@
 </body>
 
 </html>
-
